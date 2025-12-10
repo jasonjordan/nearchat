@@ -1,5 +1,0 @@
-C:\Users\Admin\Documents\dev\delay\obj\Debug\net8.0\AudioDelayApp.csproj.AssemblyReference.cache
-C:\Users\Admin\Documents\dev\delay\obj\Debug\net8.0\AudioDelayApp.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\Admin\Documents\dev\delay\obj\Debug\net8.0\AudioDelayApp.AssemblyInfoInputs.cache
-C:\Users\Admin\Documents\dev\delay\obj\Debug\net8.0\AudioDelayApp.AssemblyInfo.cs
-C:\Users\Admin\Documents\dev\delay\obj\Debug\net8.0\AudioDelayApp.csproj.CoreCompileInputs.cache

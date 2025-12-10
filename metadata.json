@@ -1,0 +1,8 @@
+{
+  "name": "NearChat",
+  "description": "A web-based walkie-talkie that simulates communication with others within a set geographical range, powered by Gemini. Press and hold the talk button to speak.",
+  "requestFramePermissions": [
+    "microphone",
+    "geolocation"
+  ]
+}

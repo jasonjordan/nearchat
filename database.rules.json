@@ -1,0 +1,41 @@
+
+{
+  "rules": {
+    "users": {
+      ".read": "auth != null",
+      // Relaxed write rule to allow Admin Dashboard actions (Delete, Ban, etc) to function
+      ".write": "auth != null",
+      "$uid": {
+        // Validation remains to ensure data integrity
+        "callsign": { ".validate": "newData.isString() && newData.val().length <= 20" },
+        "receiveRadius": { ".validate": "newData.isNumber()" }
+      }
+    },
+    "profiles": {
+      ".read": "auth != null",
+      ".indexOn": ["callsign"],
+      // Relaxed write rule to allow Admin Dashboard to delete profiles
+      ".write": "auth != null"
+    },
+    "messages": {
+      ".read": "auth != null",
+      "$messageId": {
+        // Allow write if auth exists and message is new. 
+        // We do basic validation but rely on client for structure to avoid brittle failures.
+        ".write": "auth != null && !data.exists()", 
+        ".validate": "newData.child('payload').hasChild('fromId') && newData.child('payload').child('fromId').val() === auth.uid"
+      }
+    },
+    "analytics": {
+      ".read": "auth != null",
+      "daily_visits": {
+         "$date": {
+            // Only allow incrementing
+            ".write": "auth != null && (!data.exists() || newData.val() === data.val() + 1)"
+         }
+      }
+    },
+    ".read": false,
+    ".write": false
+  }
+}
